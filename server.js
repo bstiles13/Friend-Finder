@@ -6,7 +6,7 @@ var bodyparser = require('body-parser');
 
 //Defines server
 var app = express();
-var port = 8080;
+var port = process.env.PORT || 8080;
 
 //Initiates server
 app.listen(port, function() {
