@@ -25,7 +25,7 @@ var profiles = [{
     {
         name: 'Kate',
         photo: 'https://static1.gamespot.com/uploads/original/355/3557156/2550862-3920783094-51bac.jpg',
-        scores: [1, 5, 2, 1, 3, 1, 5, 3, 2, 5]
+        scores: [1, 5, 2, 1, 3, 1, 5, 2, 3, 5]
     },
     {
         name: 'Claire',
@@ -35,12 +35,27 @@ var profiles = [{
     {
         name: 'Leo',
         photo: 'http://cdn4.thr.com/sites/default/files/2014/11/leonardo_dicaprio.jpg',
-        scores: [4, 1, 2, 4, 3, 1, 5, 5, 1, 2]
+        scores: [2, 3, 2, 5, 3, 1, 5, 4, 1, 2]
     },
     {
         name: 'Matt',
         photo: 'http://www.goodwp.com/large/201207//22818.jpg',
         scores: [3, 2, 5, 4, 5, 5, 1, 1, 3, 4]
+    },
+    {
+        name: 'Will',
+        photo: 'https://i.cbc.ca/1.3524802.1460035717!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_620/will-ferrell-on-stroumboulopoulos.jpg',
+        scores: [4, 4, 5, 4, 5, 4, 3, 1, 1, 2]
+    },
+    {
+        name: 'Chloe',
+        photo: 'http://www.speakerscorner.me/wp-content/uploads/2016/05/chloe24.jpg',
+        scores: [3, 4, 4, 3, 4, 1, 4, 1, 1, 5]
+    },
+    {
+        name: 'Snooki',
+        photo: 'http://www.hollywoodnews.com/wp-content/uploads/2010/08/nicole-snooki-jersey-shore-600x280-prphotos1.jpg',
+        scores: [1, 5, 1, 1, 1, 1, 2, 5, 3, 3]
     }
 ];
 
