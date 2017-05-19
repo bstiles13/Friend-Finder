@@ -3,6 +3,7 @@ var express = require('express');
 // var mysql = require('mysql');
 // var fs = require('fs');
 var bodyparser = require('body-parser');
+var path = require('path');
 
 //Defines server
 var app = express();
@@ -13,7 +14,13 @@ app.listen(port, function() {
     console.log('Connection successful at port ' + port);
 });
 
-app.use(express.static('app/public'));
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.text());
+app.use(bodyparser.json({ type: "application/vnd.api+json" }));
+app.use(express.static(__dirname + '/app/public'));
+// app.use(express.static('app/'));
+// app.use(express.static('app/public/'));
 
 //Global variables
 var match;
@@ -59,53 +66,5 @@ var profiles = [{
     }
 ];
 
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({
-    extended: true
-}));
-app.use(bodyparser.text());
-app.use(bodyparser.json({
-    type: "application/vnd.api+json"
-}));
-
-app.get('/:path?', function(req, res) {
-    var path = req.params.path;
-
-    switch (path) {
-        case ('/home'):
-            res.sendFile(__dirname + '/app/public/home.html');
-            break;
-        case ('survey'):
-            res.sendFile(__dirname + '/app/public/survey.html');
-            break;
-        default:
-            res.sendFile(__dirname + '/app/public/home.html');
-            break;
-    }
-})
-
-app.post('/survey/result', function(req, res) {
-    // console.log(req.body);
-    var reqObj = req.body;
-    console.log(reqObj);
-    var reqArray = Object.keys(reqObj).map(function(key) {
-        return (parseInt(reqObj[key]));
-    })
-    console.log(reqArray);
-
-    var compatibility = [];
-    match = "";
-
-    for (var i = 0; i < profiles.length; i++) {
-        var compScore = 0;
-        for (var z = 0; z < profiles[i].scores.length; z++) {
-            compScore += Math.abs(parseInt(profiles[i].scores[z]) - parseInt(reqArray[z]));
-        }
-        compatibility.push(compScore);
-    }
-
-    console.log(compatibility);
-
-    match = compatibility.indexOf(Math.min.apply(Math, compatibility));
-    res.json(profiles[match]);
-})
+require('./app/routing/htmlRoutes.js')(app);
+require('./app/routing/apiRoutes.js')(app, profiles);
