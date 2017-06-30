@@ -18,4 +18,4 @@ The server and routing is built on Express.
    * The closest match will be the user with the least amount of difference.
 
 3. Once the app finds the current user's most compatible friend, the result is displayed as a modal pop-up.
-   * The modal should display both the name and picture of the closest celebrity match. 
+   * The modal displays both the name and picture of the closest celebrity match. 
