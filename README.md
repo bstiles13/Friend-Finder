@@ -11,8 +11,8 @@ The server and routing is built on Express.
 2. The user's results are converted into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
    * The array is used to compare the user's scores against those from other users, question by question. The sum of the differences calculates the `totalDifference`.
      * Example: 
-       * User 1: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`
-       * User 2: `[3, 2, 6, 4, 5, 1, 2, 5, 4, 1]`
+       * You: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`
+       * Celebrity: `[3, 2, 6, 4, 5, 1, 2, 5, 4, 1]`
        * Total Difference: 2 + 1 + 2 + 0 + 0 + 0 + 0 + 0 + 0 + 0 = 5
 
    * The closest match will be the user with the least amount of difference.
